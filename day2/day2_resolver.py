@@ -60,9 +60,9 @@ def get_day2_results_for_first_part() -> int:
     raw_data = read_file("./day2/day2-input.txt").splitlines()
     result = 0
     for line in raw_data:
-        x, y = line.split(" ")  # tuple unpacking
-        result += Symbols[y].value.value
-        result += play_a_game_part_1(Symbols[y].value, Symbols[x].value)
+        enemy_move, player_move = line.split(" ")  # tuple unpacking
+        result += Symbols[player_move].value.value
+        result += play_a_game_part_1(Symbols[player_move].value, Symbols[enemy_move].value)
     return result
 
 
@@ -70,7 +70,7 @@ def get_day2_results_for_second_part() -> int:
     raw_data = read_file("./day2/day2-input.txt").splitlines()
     result = 0
     for line in raw_data:
-        x, y = line.split(" ")  # tuple unpacking
-        result += Symbols[y].value.value
-        result += play_a_game_part_2(Symbols[x].value)
+        enemy_move, player_move = line.split(" ")  # tuple unpacking
+        result += Symbols[player_move].value.value
+        result += play_a_game_part_2(Symbols[enemy_move].value)
     return result
