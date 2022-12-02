@@ -2,21 +2,19 @@ from utils import read_file
 from enum import Enum
 
 
-# Enum class is now a thing in python. Syntax https://docs.python.org/3/library/enum.html
+# Enum class https://docs.python.org/3/library/enum.html
 class RockPaperScissors(Enum):
     ROCK = 1
     PAPER = 2
     SCISSORS = 3
 
 
-# So I used it
 class Symbols(Enum):
     A = X = RockPaperScissors.ROCK
     B = Y = RockPaperScissors.PAPER
     C = Z = RockPaperScissors.SCISSORS
 
 
-# a lot
 class Score(Enum):
     WIN = 6
     LOSE = 0
