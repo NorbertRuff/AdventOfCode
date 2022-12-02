@@ -20,11 +20,10 @@ def get_results_for_first_part() -> list:
             sum_of_one_elf_calories += int(raw_data[i])
     elf_calories.append(sum_of_one_elf_calories)
 
-    elf_calories.sort(reverse=True)
-    return elf_calories
+    return sorted(elf_calories, reverse=True)
 
 
 # sum of calories for first 3 elf
 def get_results_for_second_part(elf_calories: list) -> int:
-    print(elf_calories[:3])
+    # print(elf_calories[:3])
     return sum(elf_calories[:3])
