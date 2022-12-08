@@ -20,48 +20,108 @@ length = len(matrix)
 width = len(matrix[0])
 
 
-def up(tree, x, y):
-    for i in range(x - 1, 0, -1):
-        if tree <= matrix[i][y]:
+def up(trees, x, y):
+    for i in range(1, x + 1):
+        if trees[x][y] <= trees[x - i][y]:
             return False
-    return True
+        if x - i == 0:
+            return True
 
 
-def down(tree, x, y):
+def down(trees, x, y):
     for i in range(x + 1, length):
-        if tree <= matrix[i][y]:
+        if trees[i][y] >= trees[x][y]:
             return False
-    return True
+        if i == length - 1:
+            return True
 
 
-def left(tree, x, y):
-    for i in range(y - 1, 0, -1):
-        if tree <= matrix[x][i]:
+def left(trees, x, y):
+    for i in range(1, y + 1):
+        if trees[x][y] <= trees[x][y - i]:
             return False
-    return True
+        if y - i == 0:
+            return True
 
 
-def right(tree, x, y):
+def right(trees, x, y):
     for i in range(y + 1, width):
-        if tree <= matrix[x][i]:
+        if trees[x][i] >= trees[x][y]:
             return False
-    return True
+        if i == width - 1:
+            return True
 
 
-def visible_from_outside(x, y):
-    tree = matrix[x][y]
-    if up(tree, x, y) or down(tree, x, y) or left(tree, x, y) or right(tree, x, y):
+def up_score(trees, x, y):
+    up_s = 0
+    for i in range(y - 1, -1, -1):
+        if trees[x][y] <= trees[x][i]:
+            up_s += 1
+            break
+        up_s += 1
+    return up_s
+
+
+def down_score(trees, x, y):
+    down_s = 0
+    for i in range(y + 1, len(trees[x])):
+        if trees[x][y] <= trees[x][i]:
+            down_s += 1
+            break
+        down_s += 1
+    return down_s
+
+
+def left_score(trees, x, y):
+    left_s = 0
+    for i in range(x - 1, -1, -1):
+        if trees[x][y] <= trees[i][y]:
+            left_s += 1
+            break
+        left_s += 1
+    return left_s
+
+
+def right_score(trees, x, y):
+    right_s = 0
+    for i in range(x + 1, len(trees)):
+        if trees[x][y] <= trees[i][y]:
+            right_s += 1
+            break
+        right_s += 1
+    return right_s
+
+
+def visible_from_outside(trees, x, y):
+    if x == 0 or y == 0 or x == length - 1 or y == width - 1:
+        return True
+    if up(trees, x, y) or down(trees, x, y) or left(trees, x, y) or right(trees, x, y):
         return True
     return False
 
 
-def get_day8_results():
-    inner_count = 0
+def get_scenic_score(trees, x, y):
+    left_total = left_score(trees, x, y)
+    top_total = up_score(trees, x, y)
+    right_total = right_score(trees, x, y)
+    bottom_total = down_score(trees, x, y)
+    return left_total * top_total * bottom_total * right_total
+
+
+def get_day8_part1_results():
+    total = 0
     for i in range(length):
         for j in range(width):
-            if visible_from_outside(i, j):
-                inner_count += 1
-    print(inner_count)
-    part1 = inner_count + (2 * length) + (2 * width) - 4
-    print(part1)
-    return part1
+            if visible_from_outside(matrix, i, j):
+                total += 1
+    return total
+
+
+def get_day8_part2_results():
+    total = 0
+    for i in range(length):
+        for j in range(width):
+            x = get_scenic_score(matrix, i, j)
+            if x > total:
+                total = x
+    return total
