@@ -3,6 +3,9 @@ from day2 import get_day2_results_for_first_part, get_day2_results_for_second_pa
 from day3 import get_day3_results_for_first_part, get_day3_results_for_second_part
 from day4 import get_day4_results_for_first_part, get_day4_results_for_second_part
 from day5 import get_day5_results_for_first_part, get_day5_results_for_second_part
+from day6 import get_day6_results_for_first_part, get_day6_results_for_second_part
+from day7 import get_day7_results
+from day8 import get_day8_results
 
 
 def main():
@@ -21,6 +24,12 @@ def main():
 
     print("day 5 first part result", get_day5_results_for_first_part())
     print("day 5 second part result", get_day5_results_for_second_part())
+
+    print("day 6 first part result", get_day6_results_for_first_part())
+    print("day 6 second part result", get_day6_results_for_second_part())
+
+    print("day 7 result", get_day7_results())
+    print("day 8 result", get_day8_results())
 
 
 if __name__ == '__main__':
