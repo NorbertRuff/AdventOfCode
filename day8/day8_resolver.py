@@ -11,7 +11,6 @@ def get_matrix_from_raw_data():
         grid.append([])
         for tree in list(row.strip()):
             grid[i].append(tree)
-    print(grid)
     return grid
 
 
