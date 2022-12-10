@@ -10,7 +10,6 @@ def get_day6_results_for_first_part():
     for i in range(len(raw_data)):
         characters = 4
         batch = raw_data[(i - characters):i]
-        print(batch)
         if len(set(batch)) == characters:
             return i
 
@@ -20,6 +19,5 @@ def get_day6_results_for_second_part():
     for i in range(len(raw_data)):
         characters = 14
         batch = raw_data[(i - characters):i]
-        print(batch)
         if len(set(batch)) == characters:
             return i

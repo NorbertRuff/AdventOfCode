@@ -25,5 +25,4 @@ def get_results_for_first_part() -> list:
 
 # sum of calories for first 3 elf
 def get_results_for_second_part(elf_calories: list) -> int:
-    # print(elf_calories[:3])
     return sum(elf_calories[:3])

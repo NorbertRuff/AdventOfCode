@@ -33,13 +33,12 @@ def get_instructions():
 
 def move_boxes_part1(q, s, d):
     for _ in range(q):
-        print("moving box from {} to {}".format(s, d))
-        part1_test_crates[d].append(part1_test_crates[s][-1])
-        part1_test_crates[s].pop()
+        part_1_crates[d].append(part_1_crates[s][-1])
+        part_1_crates[s].pop()
 
 
 def move_boxes_part2(q, s, d):
-    part2_test_crates[d].extend([part2_test_crates[s].pop() for _ in range(q)][::-1])
+    part_2_crates[d].extend([part_2_crates[s].pop() for _ in range(q)][::-1])
 
 
 def get_day5_results_for_first_part():
@@ -47,8 +46,8 @@ def get_day5_results_for_first_part():
     for quantity, source, destination in instructions:
         move_boxes_part1(quantity, source, destination)
     result = ""
-    for i in part1_test_crates:
-        result += part1_test_crates[i][-1]
+    for i in part_1_crates:
+        result += part_1_crates[i][-1]
     return result
 
 
@@ -57,6 +56,6 @@ def get_day5_results_for_second_part():
     for quantity, source, destination in instructions:
         move_boxes_part2(quantity, source, destination)
     result = ""
-    for i in part1_test_crates:
-        result += part1_test_crates[i][-1]
+    for i in part_2_crates:
+        result += part_2_crates[i][-1]
     return result

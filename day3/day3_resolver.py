@@ -12,7 +12,6 @@ def get_day3_results_for_first_part():
     for line in raw_data:
         rucksack1_items = set(line[:len(line) // 2])
         rucksack2_items = set(line[len(line) // 2:])
-        print(rucksack1_items, rucksack2_items)
         for item in rucksack1_items:
             if item in rucksack2_items:
                 if item.islower():
@@ -20,8 +19,6 @@ def get_day3_results_for_first_part():
                 elif item.isupper():
                     high_priority.append(item)
 
-    print(low_priority, high_priority)
-    print(ord('A')-UPPERCASE_SHIFT, ord('z')-LOWERCASE_SHIFT)
     ascii_low_priority = [ord(item)-LOWERCASE_SHIFT for item in low_priority]
     ascii_high_priority = [ord(item)-UPPERCASE_SHIFT for item in high_priority]
     return sum(ascii_low_priority)+sum(ascii_high_priority)
@@ -36,7 +33,6 @@ def get_day3_results_for_second_part():
             second_rucksack = set(raw_data[i+1])
             third_rucksack = set(raw_data[i+2])
             common_chars = third_rucksack.intersection(first_rucksack.intersection(second_rucksack))
-            print(common_chars)
             for item in common_chars:
                 if item.islower():
                     result += ord(item) - LOWERCASE_SHIFT
