@@ -1,16 +1,5 @@
-from day1 import get_results_for_first_part, get_results_for_second_part
-from day10 import get_day10_part1_results, get_day10_part2_results
-from day11 import get_day11_part2_results, get_day11_part1_results
-from day12 import get_day12_results
-from day13 import get_day13_part1_results, get_day13_part2_results
-from day2 import get_day2_results_for_first_part, get_day2_results_for_second_part
-from day3 import get_day3_results_for_first_part, get_day3_results_for_second_part
-from day4 import get_day4_results_for_first_part, get_day4_results_for_second_part
-from day5 import get_day5_results_for_first_part, get_day5_results_for_second_part
-from day6 import get_day6_results_for_first_part, get_day6_results_for_second_part
-from day7 import get_day7_results
-from day8 import get_day8_part1_results, get_day8_part2_results
-from day9 import get_day9_part1_results, get_day9_part2_results
+from AOC_2022.day17 import get_day17_results
+
 
 
 def main():
@@ -48,9 +37,15 @@ def main():
     # print("day 11 second part result", get_day11_part2_results())
     #
     # print("day 12 result", get_day12_results())
+    #
+    # print("day 13 first part result", get_day13_part1_results())
+    # print("day 13 second part result ", get_day13_part2_results())
 
-    print("day 13 first part result", get_day13_part1_results())
-    print("day 13 second part result ", get_day13_part2_results())
+    # print("day 14 result", get_day14_results())
+    #
+    # print("day 15 result", get_day15_results())
+    # print("day 16 result", get_day16_results())
+    print("day 17 result", get_day17_results())
 
 
 if __name__ == '__main__':

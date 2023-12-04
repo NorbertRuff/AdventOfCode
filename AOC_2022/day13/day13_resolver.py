@@ -8,9 +8,9 @@ def is_lower(pair_one, pair_two):
         if pair_one == pair_two:
             return None
         if pair_one < pair_two:
-            return 1
+            return True
         else:
-            return -1
+            return False
     if isinstance(pair_one, int):
         pair_one = [pair_one]
     if isinstance(pair_two, int):
@@ -20,9 +20,9 @@ def is_lower(pair_one, pair_two):
         if rec is not None:
             return rec
     if len(pair_one) < len(pair_two):
-        return 1
+        return True
     if len(pair_one) > len(pair_two):
-        return -1
+        return False
     return None
 
 
@@ -36,10 +36,13 @@ def get_day13_part1_results():
             pair2 = eval(pair2)
             result.append(is_lower(pair1, pair2))
     for index, value in enumerate(result, start=1):
-        if value == 1:
+        if value is True:
             index_summa += index
     return index_summa
 
+
+def count_lower(packets, divider):
+    return sum(is_lower(packet, divider) is True for packet in packets)
 
 def get_day13_part2_results():
     packets = []
@@ -47,11 +50,6 @@ def get_day13_part2_results():
         pair1, pair2 = pairs.split("\n")
         packets.append(eval(pair1))
         packets.append(eval(pair2))
-    packets.append([[2]])
-    packets.append([[6]])
-    for i in range(len(packets)):
-        for j in range(i, len(packets)):
-            if is_lower(packets[i], packets[j]) == 1:
-                packets[i], packets[j] = packets[j], packets[i]
-
-    return packets.index([[2]]) * packets.index([[6]])
+    print(packets)
+    part2 = (count_lower(packets, [[2]]) + 1) * (count_lower(packets, [[6]]) + 2)
+    return part2
