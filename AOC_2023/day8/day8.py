@@ -65,7 +65,7 @@ if __name__ == '__main__':
     instructions = raw_data[0]
     instructions = [i for i in instructions if i != ' ']
     network = raw_data[2:]
-    # first_part_result = part1_resolver(instructions, network)
-    # print('first_part_result', first_part_result)
+    first_part_result = part1_resolver(instructions, network)
+    print('first_part_result', first_part_result)
     second_part_result = part2_resolver(instructions, network)
     print('second_part_result', second_part_result)
