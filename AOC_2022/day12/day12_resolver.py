@@ -1,4 +1,5 @@
 import math
+
 from utils import *
 
 raw_data = read_file("./day12/day12-input.txt").splitlines()
@@ -6,7 +7,6 @@ grid = []
 elevations = []
 
 
-# https://en.wikipedia.org/wiki/Breadth-first_search
 def breadth_first_search(end):
     end_dict = dict()
     queue = [end]
